@@ -19,11 +19,11 @@ app.get('/api/posts', async function (req, res) {
 
     var sorted_array = [];
     if (result != false && (json_data != null || json_data != undefined)) {
-        if(tags.trim().length == 0) {
+        if (tags.trim().length == 0) {
             res.status(400).json(utils.sendErrorResponse("Please pass valid value of tags parameter"))
             return
         }
-        
+
         var tags = tags.split(",");
         //console.log("Split = " + tags.length);
 
@@ -37,7 +37,7 @@ app.get('/api/posts', async function (req, res) {
             }
         }
 
-        if(sorted_array.length == 0) {
+        if (sorted_array.length == 0) {
             res.status(200).json(utils.sendSuccessResponse("No matches found for the given value for tags parameter"))
             return
         }
