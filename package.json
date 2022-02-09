@@ -1,0 +1,23 @@
+{
+  "name": "hatchways-backend-assessment",
+  "version": "1.0.0",
+  "description": "Hatchways backend-assessment ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VandanaGhori/Hatchways-backend-assessment.git"
+  },
+  "author": "Vandana Ghori",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VandanaGhori/Hatchways-backend-assessment/issues"
+  },
+  "homepage": "https://github.com/VandanaGhori/Hatchways-backend-assessment#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "express": "^4.17.2"
+  }
+}
