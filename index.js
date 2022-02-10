@@ -4,6 +4,8 @@ var app = express();
 var posts = require("./controller/posts");
 const utils = require("./utils");
 
+const port = 3000;
+
 app.get('/api/ping', function (req, res) {
     res.status(200).json(utils.sendSuccessResponse("true"));
 });
@@ -76,6 +78,6 @@ app.get('/api/posts', async function (req, res) {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });

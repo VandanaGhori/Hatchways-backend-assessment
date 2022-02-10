@@ -1,5 +1,8 @@
 const utils = require("../utils");
 const axios = require('axios');
+const nodeCache = require("node-cache");
+
+const myCache = new nodeCache({ stdTTL: 10 });
 
 module.exports = {
     fetchAPIData: async function () {
@@ -8,10 +11,17 @@ module.exports = {
             'url': 'https://api.hatchways.io/assessment/blog/posts?tag=tech'
         };
 
-        var axios_res = await axios(options);
-        var api_res = axios_res.data;
+        if (myCache.has("todos")) {
+            console.log("Getting it from cache");
+            return myCache.get("todos");
+        } else {
+            var axios_res = await axios(options);
+            var api_res = axios_res.data;
 
-        return api_res;
+            myCache.set("todos", api_res);
+            console.log("Getting it from API");
+            return api_res;
+        }
     },
     validateQueryParameter: function (req, res) {
         if (req == null) {
